@@ -1,0 +1,193 @@
+{
+  "name": "user-form",
+  "type": "form",
+  "props": {
+    "gutter": 16
+  },
+  "container": [
+    {
+      "name": "username",
+      "type": "input",
+      "label": "账号",
+      "props": {
+        "placeholder": "请输入账号",
+        "disabled": false
+      }
+    },
+    {
+      "name": "password",
+      "type": "password",
+      "label": "密码",
+      "props": {
+        "placeholder": "请填写密码",
+        "disabled": false
+      }
+    },
+    {
+      "name": "name",
+      "type": "text",
+      "condition": "{{_.get(parentValue, \"username\") !== \"zhangsan111\"}}",
+      "label": "姓名"
+    },
+    {
+      "name": "name",
+      "type": "input",
+      "label": "姓名",
+      "condition": "{{_.get(parentValue, \"username\") === \"zhangsan111\"}}",
+      "props": {
+        "placeholder": "请输入账号",
+        "disabled": false
+      }
+    },
+    {
+      "name": "score",
+      "type": "number",
+      "label": "积分",
+      "props": {
+        "placeholder": "请填写积分",
+        "required": "姓名不能为空"
+      }
+    },
+    {
+      "name": "price",
+      "type": "digit",
+      "label": "单价"
+    },
+    {
+      "name": "sex",
+      "label": "性别",
+      "type": "radio",
+      "props": {
+        "showButtonStyle": false,
+        "url": "/api/radio/options",
+        "options": [
+          {
+            "label": "未知0",
+            "value": "0"
+          },
+          {
+            "label": "男1",
+            "value": "1"
+          },
+          {
+            "label": "女2",
+            "value": "2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "favor",
+      "label": "兴趣",
+      "type": "checkbox",
+      "props": {
+        "max": 2,
+        "options": [
+          {
+            "label": "动漫",
+            "value": "0"
+          },
+          {
+            "label": "电影",
+            "value": "1"
+          },
+          {
+            "label": "音乐",
+            "value": "2"
+          },
+          {
+            "label": "歌剧",
+            "value": "3"
+          }
+        ]
+      }
+    },
+    {
+      "name": "contacts",
+      "label": "联系人",
+      "type": "select",
+      "props": {
+        "allowCreate": false,
+        "max": 99999,
+        "url": "https://k11-central.wosoft.me/api/v1/user?access_token=DEBUG&project={%22wechat_sites%22:0,%22sites%22:0,%22roles%22:0,%22department%22:0}",
+        "labelFieldName": "name",
+        "isObjectValue": true,
+        "valueFieldName": "_id"
+      }
+    },
+    {
+      "name": "depts",
+      "label": "所属部门",
+      "type": "treeselect",
+      "props": {
+        "expandAll": true,
+        "simpleMode": true,
+        "treeCheckable": true,
+        "max": 3,
+        "url": "/api/treeselect/options"
+      }
+    },
+    {
+      "name": "hobby",
+      "type": "tag",
+      "label": "兴趣爱好",
+      "props": {
+        "longTagLength": 4,
+        "span": 24
+      }
+    },
+    {
+      "name": "birth",
+      "label": "出生日期",
+      "type": "datepicker"
+    },
+    {
+      "name": "active_range",
+      "label": "生效范围",
+      "type": "rangepicker"
+    },
+    {
+      "name": "stat_time",
+      "label": "评分年月",
+      "type": "monthpicker"
+    },
+    {
+      "name": "start_week",
+      "label": "启动周",
+      "type": "weekpicker"
+    },
+    {
+      "name": "trigger_time",
+      "label": "触发时间",
+      "type": "timepicker"
+    },
+    {
+      "name": "avatar",
+      "label": "头像",
+      "type": "file",
+      "props": {
+        "allowRemove": true,
+        "allowPreview": true,
+        "allowUpload": true,
+        "action": "/api/v1/upload?access_token=DEBUG",
+        "span": 12
+      }
+    },
+    {
+      "name": "remark",
+      "type": "textarea",
+      "label": "备注",
+      "props": {
+        "span": 24,
+        "rows": 10
+      }
+    },
+    {
+      "name": "buttons",
+      "type": "empty",
+      "props": {
+        "noLabel": true
+      }
+    }
+  ]
+}
